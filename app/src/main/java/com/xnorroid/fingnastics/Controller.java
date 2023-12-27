@@ -26,8 +26,8 @@ public class Controller {
 
     public void nextLevel() {
         theMainActivity.setSharedPreferences(currentLevel);
+        theMainActivity.hideButtons(allButtons);
         if (currentLevel >= 10) {
-            theMainActivity.hideButtons(allButtons);
             theMainActivity.display("Congratulations, you've passed all levels!\nRestart the app and try again!");
 
             SharedPreferences sharedPreferences = theMainActivity.getSharedPreferences("data", 0);
@@ -36,10 +36,8 @@ public class Controller {
             edit.apply();
         } else {
             theMainActivity.display("level: " + currentLevel);
-
             searchedButtons = allButtons.stream().limit(currentLevel).collect(Collectors.toList());
             theMainActivity.showButtons(searchedButtons);
-
 
         }
     }

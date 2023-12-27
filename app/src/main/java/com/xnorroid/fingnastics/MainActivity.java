@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showButtons(List<Button> pSearchedButtons) {
         for (Button button : pSearchedButtons) {
+            button.setVisibility(View.INVISIBLE);
             Point size = new Point();
             getWindowManager().getDefaultDisplay().getRealSize(size); //real size without notch
             float dx;
@@ -141,14 +142,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void hideButtons(List<Button> pButtons) {
+        buttons.clear();
         for (Button button : pButtons) {
             button.setVisibility(View.INVISIBLE);
+            button.setBackgroundColor(getResources().getColor(R.color.primary));
         }
     }
 
     public List<Button> getButtons() {
         return buttons;
     }
+
 
     public void display(String pDisplay) {
         middleText.setText(pDisplay);
