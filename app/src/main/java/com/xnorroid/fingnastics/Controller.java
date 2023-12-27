@@ -48,22 +48,20 @@ public class Controller {
 
             if (theMainActivity.getButtons().get(i) == searchedButtons.get(i)) {
                 theMainActivity.getButtons().get(i).setBackgroundColor(Color.parseColor("#808080"));
+                theMainActivity.display(String.valueOf(theMainActivity.getButtons().size()) + " out of " + String.valueOf(searchedButtons.size()));
             } else {
                 theMainActivity.getButtons().get(i).setBackgroundColor(Color.parseColor("#ff0000"));
+                theMainActivity.display("wrong");
             }
 
         }
 
         if (theMainActivity.getButtons().equals(searchedButtons)) {
 
-            theMainActivity.display("correct");
+            theMainActivity.display("all correct");
             currentLevel++;
             nextLevel();
 
-        } else {
-            theMainActivity.display("wrong");
         }
     }
 }
-
-
