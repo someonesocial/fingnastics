@@ -1,13 +1,18 @@
 package com.xnorroid.fingnastics;
 
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -156,6 +161,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void display(String pDisplay) {
         middleText.setText(pDisplay);
+        manageBlinkEffect();
+    }
+
+    private void manageBlinkEffect() {
+        ObjectAnimator anim = ObjectAnimator.ofInt(middleText, "backgroundColor", Color.WHITE, getResources().getColor(R.color.primary),
+                Color.WHITE);
+        anim.setDuration(1500);
+        anim.setEvaluator(new ArgbEvaluator());
+        anim.setRepeatMode(ValueAnimator.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        anim.start();
     }
 
     public void setSharedPreferences(int pCurrentLevel) {
