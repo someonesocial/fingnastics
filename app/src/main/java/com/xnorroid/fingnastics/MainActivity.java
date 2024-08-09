@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         theController.test();
                     } else if (event.getAction() == MotionEvent.ACTION_UP) {
                         buttons.remove(button);
-                        button.setBackgroundColor(getResources().getColor(R.color.primary));
+                        button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.primary));
                         theController.test();
                     }
                     return true;
@@ -150,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         buttons.clear();
         for (Button button : pButtons) {
             button.setVisibility(View.INVISIBLE);
-            button.setBackgroundColor(getResources().getColor(R.color.primary));
+            button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.primary));
         }
     }
 
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void manageBlinkEffect() {
-        ObjectAnimator anim = ObjectAnimator.ofInt(middleText, "backgroundColor", Color.WHITE, getResources().getColor(R.color.primary),
+        ObjectAnimator anim = ObjectAnimator.ofInt(middleText, "backgroundColor", Color.WHITE, ContextCompat.getColor(getApplicationContext(), R.color.primary),
                 Color.WHITE);
         anim.setDuration(1500);
         anim.setEvaluator(new ArgbEvaluator());
