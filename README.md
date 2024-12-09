@@ -1,4 +1,4 @@
-## To win, press and hold the randomly placed buttons on the screen in the correct order. It's that simple! Can you press all ten buttons?
+# To win, press and hold the randomly placed buttons on the screen in the correct order. It's that simple! Can you press all ten buttons?
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <img src="https://github.com/user-attachments/assets/022a54b3-1b8c-405a-a02e-ba13c8411448" alt="Screenshot 1" width="270">
